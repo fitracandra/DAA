@@ -1,0 +1,28 @@
+@startuml kampus
+
+actor Dosen as ds 
+actor Mahasiswa as mhs 
+actor Administrasi as adm 
+
+package classroom {
+    usecase " Menerima Penjadwalan perkuliahan" as U1
+    usecase "Pilih mata kuliah" as U2
+    usecase "ruang perkuliahan" as U3
+    usecase "Jadwal kuliah" as U4
+    usecase "mengajar" as U5
+    usecase "Tolak mengajar" as U6
+    usecase "blm" as U7
+}
+
+mhs-->U1
+mhs-->U2
+U2 .>U3
+U2 .>U4
+ds-->U5
+ds-->U6
+adm-->U7
+
+
+
+
+@enduml
