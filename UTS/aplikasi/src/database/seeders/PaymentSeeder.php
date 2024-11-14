@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Payment;
-
+use App\Models\Order;
 
 class PaymentSeeder extends Seeder
 {
@@ -14,13 +13,16 @@ class PaymentSeeder extends Seeder
      */
     public function run(): void
     {
+        // Ambil order yang sudah ada
+        $order = Order::first(); // Pastikan ada setidaknya satu order di tabel
+
+        // Membuat payment untuk order yang ada
         Payment::create([
-            'order_id' => 1,
-            'amount' => 250.00,
-            'method' => 'transfer',
-            'status' => 'completed',
+            'order_id' => $order->id,
+            'amount' => $order->total_amount,
+            'method' => 'credit_card', // contoh metode pembayaran
+            'status' => 'completed', // contoh status pembayaran
             'payment_date' => now(),
         ]);
-        
     }
 }

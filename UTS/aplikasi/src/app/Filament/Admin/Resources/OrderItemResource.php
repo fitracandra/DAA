@@ -23,7 +23,19 @@ class OrderItemResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('order_id')
+                    ->required()
+                    ->numeric(),
+                Forms\Components\TextInput::make('product_id')
+                    ->required()
+                    ->numeric(),
+                Forms\Components\TextInput::make('quantity')
+                    ->required()
+                    ->numeric(),
+                Forms\Components\TextInput::make('price')
+                    ->required()
+                    ->numeric()
+                    ->prefix('$'),
             ]);
     }
 
@@ -31,7 +43,26 @@ class OrderItemResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('order_id')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('product_id')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('quantity')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('price')
+                    ->money()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //

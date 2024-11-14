@@ -23,7 +23,28 @@ class ProductResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('name')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\Textarea::make('description')
+                    ->required()
+                    ->columnSpanFull(),
+                Forms\Components\TextInput::make('price')
+                    ->required()
+                    ->numeric()
+                    ->prefix('$'),
+                Forms\Components\TextInput::make('stock')
+                    ->required()
+                    ->numeric(),
+                Forms\Components\TextInput::make('category')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('brand')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\FileUpload::make('image_url')
+                    ->image()
+                    ->required(),
             ]);
     }
 
@@ -31,7 +52,27 @@ class ProductResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('name')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('price')
+                    ->money()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('stock')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('category')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('brand')
+                    ->searchable(),
+                Tables\Columns\ImageColumn::make('image_url'),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //

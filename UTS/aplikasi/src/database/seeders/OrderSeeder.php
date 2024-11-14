@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Order;
+use App\Models\User;
+use Carbon\Carbon;
 
 class OrderSeeder extends Seeder
 {
@@ -12,12 +14,15 @@ class OrderSeeder extends Seeder
      */
     public function run(): void
     {
+        // Ambil user yang sudah ada
+        $user = User::first(); // Pastikan user sudah ada
+
+        // Membuat order
         Order::create([
-            'user_id' => 1,
-            'total_amount' => 250.00,
+            'user_id' => $user->id,
+            'total_amount' => 500.00,
             'status' => 'pending',
-            'order_date' => now(),
+            'order_date' => Carbon::now(),
         ]);
-        
     }
 }

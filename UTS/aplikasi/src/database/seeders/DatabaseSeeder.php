@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,13 +12,27 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        $user = \App\Models\User::factory()->create([
-            'name' => 'Admin',
-            'email' => 'admin@admin.com',
+        // Jalankan ProductSeeder terlebih dahulu
+        $this->call([
+            ProductSeeder::class,
         ]);
 
-        $user->assignRole('super_admin');
+        // Memastikan pengguna admin ada
+        $adminEmail = 'admin@admin.com';
+        if (! User::where('email', $adminEmail)->exists()) {
+            $admin = User::create([
+                'name' => 'Admin',
+                'email' => $adminEmail,
+                'password' => bcrypt('password'),
+            ]);
+            $admin->assignRole('super_admin');
+        }
+
+        // Jalankan OrderSeeder, OrderItemSeeder, dan PaymentSeeder
+        $this->call([
+            OrderSeeder::class,
+            OrderItemSeeder::class,
+            PaymentSeeder::class,
+        ]);
     }
 }

@@ -23,7 +23,20 @@ class PaymentResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('order_id')
+                    ->required()
+                    ->numeric(),
+                Forms\Components\TextInput::make('amount')
+                    ->required()
+                    ->numeric(),
+                Forms\Components\TextInput::make('method')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('status')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\DateTimePicker::make('payment_date')
+                    ->required(),
             ]);
     }
 
@@ -31,7 +44,27 @@ class PaymentResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('order_id')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('amount')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('method')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('status')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('payment_date')
+                    ->dateTime()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
