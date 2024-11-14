@@ -1,5 +1,5 @@
 @startuml pert2
-left to right direction
+' left to right direction '
 
 actor User as user
 package Restoran {
