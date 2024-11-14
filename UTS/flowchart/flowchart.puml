@@ -1,0 +1,42 @@
+@startuml Jualbeli
+title flowchart untuk jual beli sepatu secara online.
+
+start
+:Buka Aplikasi;
+:Registrasi/Login;
+if (Pengguna Terdaftar?) then (Ya)
+  :Beranda;
+  :Cari Produk;
+  :Filter/Sort Produk;
+  :Pilih Produk;
+  :Lihat Detail Produk;
+  if (Tambah ke Keranjang?) then (Ya)
+    :Tambah ke Keranjang;
+    :Keranjang Belanja;
+    if (Lanjut Belanja?) then (Ya)
+      :Kembali ke Cari Produk;
+    else (Tidak)
+      :Proses Checkout;
+      :Pilih Metode Pembayaran;
+      :Pembayaran;
+      :Pesanan Diproses;
+      :Lacak Status Pesanan;
+    endif
+  else (Tidak)
+    :Kembali ke Beranda;
+  endif
+else (Tidak)
+  :Registrasi/Login;
+endif
+
+if (Admin Login?) then (Ya)
+  :Manajemen Produk;
+  :Tambah/Edit/Hapus Produk;
+  :Manajemen Pesanan;
+  :Lihat Pesanan;
+  :Update Status Pesanan;
+endif
+
+stop
+
+@enduml
