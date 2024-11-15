@@ -1,34 +1,26 @@
-@startuml Jualbeli
+@startuml
 
-actor Pengguna
 actor Admin
-actor "Sistem Pembayaran" as PaymentSystem
+actor Pelanggan
 
-usecase "Registrasi dan Login" as UC_Login
-usecase "Cari Produk" as UC_Search
-usecase "Lihat Detail Produk" as UC_ViewDetail
-usecase "Tambah ke Keranjang" as UC_AddToCart
-usecase "Checkout" as UC_Checkout
-usecase "Pembayaran" as UC_Payment
-usecase "Lacak Status Pesanan" as UC_TrackOrder
-usecase "Notifikasi Pesanan" as UC_Notification
-usecase "Manajemen Produk" as UC_ManageProduct
-usecase "Manajemen Pesanan" as UC_ManageOrder
+rectangle "Sistem Pengelolaan Data Pelanggan" {
+  usecase "Login Admin" as UC1
+  usecase "Kelola Data Pelanggan" as UC2
+  usecase "Kelola Data Transaksi" as UC3
+  usecase "Lihat Laporan Pelanggan" as UC4
+  usecase "Analisis Data Pelanggan" as UC5
 
-Pengguna --> UC_Login
-Pengguna --> UC_Search
-Pengguna --> UC_ViewDetail
-Pengguna --> UC_AddToCart
-Pengguna --> UC_Checkout
-Pengguna --> UC_Payment
-Pengguna --> UC_TrackOrder
-Pengguna --> UC_Notification
+  usecase "Login Pelanggan" as UC6
+  usecase "Lihat Data Pelanggan" as UC7
 
-Admin --> UC_ManageProduct
-Admin --> UC_ManageOrder
-
-UC_Checkout --> UC_Payment : "Pilih Metode Pembayaran"
-UC_Payment --> PaymentSystem : "Koneksi ke Sistem Pembayaran"
-UC_ManageOrder --> UC_Notification : "Kirim Notifikasi"
+  Admin -- UC1
+  Admin -- UC2
+  Admin -- UC3
+  Admin -- UC4
+  UC4 --> UC5 : Tampilkan Segmentasi
+  
+  Pelanggan -- UC6
+  Pelanggan -- UC7
+}
 
 @enduml

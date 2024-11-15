@@ -1,86 +1,64 @@
-Berikut adalah **analisis kasus Jual Beli Sepatu Online** yang disesuaikan dengan format yang Anda inginkan:
+# **Analisis Data Pelanggan**  
 
----
-
-## **Tujuan Aplikasi**
-Aplikasi ini dirancang untuk memudahkan pelanggan dalam membeli sepatu secara online dan membantu admin dalam mengelola produk sepatu, pesanan, dan pembayaran. Aplikasi ini juga bertujuan untuk memfasilitasi pelanggan dalam mencari sepatu berdasarkan kategori, merek, dan harga, serta memudahkan admin dalam mengatur stok produk dan memproses pesanan.
+## **Tujuan Aplikasi**  
+Aplikasi ini dirancang untuk memudahkan admin dalam mengelola data pelanggan secara efisien dan terorganisir. Sistem memungkinkan admin mengatur informasi pelanggan, melacak riwayat transaksi, serta mengelompokkan pelanggan berdasarkan kategori untuk keperluan analisis dan laporan.  
 
 ---
 
 ## **Aktor**
 
-### **Admin:**
-- **Tugas**:
-  - Mengelola produk sepatu yang tersedia di aplikasi, termasuk menambah, mengedit, dan menghapus produk.
-  - Mengelola pesanan pelanggan, termasuk mengubah status pesanan dan memverifikasi pembayaran.
-  - Mengelola pembayaran yang dilakukan pelanggan.
-  - Melihat laporan transaksi dan stok produk.
+### **Admin/Manajer Penjualan**:
+- Memiliki akses penuh untuk mengelola data pelanggan, termasuk:
+  - Menambah, mengedit, dan menghapus data pelanggan.
+  - Melihat dan mengelola riwayat transaksi pelanggan.
+  - Melihat laporan analitik terkait data pelanggan dan transaksi.
 
-### **Pelanggan:**
-- **Tugas**:
-  - Melihat daftar produk sepatu yang tersedia di toko online, dengan informasi harga, stok, merek, dan kategori.
-  - Menambah produk ke dalam keranjang belanja.
-  - Melakukan pembelian produk melalui proses checkout.
-  - Melakukan pembayaran melalui berbagai metode yang tersedia (misalnya, transfer bank, kartu kredit).
-  - Melihat status pesanan dan riwayat pembelian.
+### **Pengguna (Customer)**:
+- Tidak memiliki akses langsung ke aplikasi.
+- Data mereka digunakan untuk keperluan pencatatan, pelacakan transaksi, dan segmentasi pelanggan oleh admin.
 
 ---
 
 ## **Fitur dan Fungsionalitas**
 
-### **Fitur untuk Pelanggan:**
-1. **Melihat Produk**: Pelanggan dapat melihat daftar sepatu yang tersedia dengan rincian:
-   - Nama produk
-   - Deskripsi produk
-   - Harga
-   - Stok
-   - Merek
-   - Kategori
-   - Gambar produk
-   - Rating produk
-2. **Menambah ke Keranjang**: Pelanggan dapat menambah produk sepatu ke keranjang belanja.
-3. **Melakukan Pembayaran**: Pelanggan dapat memilih metode pembayaran yang diinginkan dan melakukan pembayaran untuk menyelesaikan transaksi.
-4. **Melihat Riwayat Pesanan**: Pelanggan dapat melihat status dan rincian pesanan yang telah dilakukan, termasuk produk yang dibeli dan status pengiriman.
+### **Fitur untuk Admin**:  
 
-### **Fitur untuk Admin:**
-1. **Pengelolaan Produk**: Admin dapat menambah, mengubah, dan menghapus produk sepatu yang ada di toko.
-   - **Detail produk**: Admin dapat memasukkan informasi produk seperti harga, stok, kategori, dan gambar sepatu.
-2. **Mengelola Pesanan**: Admin dapat melihat pesanan yang dilakukan pelanggan, mengubah status pesanan (misalnya, `pending`, `completed`, `shipped`), dan mengonfirmasi pembayaran.
-3. **Pengelolaan Pembayaran**: Admin dapat mengelola status pembayaran untuk setiap pesanan, memverifikasi pembayaran yang diterima, dan memastikan transaksi berjalan lancar.
-4. **Manajemen Kategori Produk**: Admin dapat menambah, mengubah, dan menghapus kategori sepatu (misalnya: sneakers, formal shoes, boots).
-5. **Laporan Transaksi**: Admin dapat melihat laporan terkait transaksi yang terjadi, stok produk, dan informasi pembayaran.
+#### **1. Pengelolaan Data Pelanggan**  
+- **Tambah Pelanggan**: Admin dapat memasukkan data pelanggan baru ke dalam sistem.  
+- **Edit Pelanggan**: Admin dapat memperbarui informasi pelanggan jika terjadi perubahan.  
+- **Hapus Pelanggan**: Admin dapat menghapus data pelanggan yang tidak lagi relevan.  
+- **Lihat Data Pelanggan**: Admin dapat mencari atau memfilter data pelanggan berdasarkan kategori atau kriteria tertentu.  
 
----
+#### **2. Pengelolaan Transaksi**  
+- **Tambah Transaksi**: Admin dapat mencatat transaksi baru yang dilakukan oleh pelanggan.  
+- **Edit Transaksi**: Admin dapat mengubah informasi transaksi jika diperlukan.  
+- **Hapus Transaksi**: Admin dapat menghapus data transaksi tertentu.  
+- **Lihat Riwayat Transaksi**: Admin dapat melihat semua transaksi yang pernah dilakukan oleh pelanggan tertentu.  
 
-## **Proses Bisnis Utama**
+#### **3. Laporan dan Analisis Pelanggan**  
+- **Laporan Pelanggan**: Sistem dapat menampilkan laporan berdasarkan kategori pelanggan (baru, reguler, VIP).  
+- **Analisis Transaksi**: Sistem memberikan ringkasan transaksi pelanggan berdasarkan nilai atau frekuensi transaksi.  
+- **Segmentasi Pelanggan**: Sistem otomatis mengelompokkan pelanggan berdasarkan kriteria tertentu, seperti jumlah transaksi atau total nilai transaksi.  
 
-### **Proses Pembelian oleh Pelanggan:**
-1. **Pelanggan melakukan pencarian produk** berdasarkan kategori, merek, atau harga.
-2. **Pelanggan memilih produk** dan menambahkannya ke keranjang belanja.
-3. **Pelanggan melakukan checkout** dan memilih metode pembayaran.
-4. **Pelanggan melakukan pembayaran**, dan status pesanan akan berubah menjadi `pending` sampai pembayaran dikonfirmasi oleh admin.
-5. **Admin memverifikasi pembayaran** dan mengubah status pesanan menjadi `completed`.
-6. **Produk dikirimkan ke pelanggan**, dan status pesanan berubah menjadi `shipped`.
-
-### **Proses Manajemen Produk oleh Admin:**
-1. **Admin menambah produk baru** ke aplikasi dengan detail seperti harga, stok, kategori, dan gambar.
-2. **Admin mengedit produk** jika ada perubahan harga, stok, atau detail lainnya.
-3. **Admin menghapus produk** jika produk tidak lagi tersedia.
+### **Fitur untuk Pengguna (Customer)**:  
+- Tidak tersedia fitur langsung untuk pelanggan, karena aplikasi ini dirancang khusus untuk pengelolaan data internal.  
 
 ---
 
-## **Analisis Keamanan**
-- **Pelanggan** hanya dapat melihat produk, menambahkannya ke keranjang, dan melakukan pembelian. Pelanggan tidak dapat mengubah data produk atau melihat informasi pembayaran admin.
-- **Admin** memiliki akses penuh untuk mengelola produk, pesanan, pembayaran, dan kategori. Admin bertanggung jawab atas verifikasi pembayaran dan pengiriman produk.
+## **Contoh Detail Fitur**  
+### **Pengelolaan Data Pelanggan oleh Admin**:  
+- **Tambah Pelanggan**:  
+  - Informasi yang dimasukkan mencakup:  
+    - Nama pelanggan (contoh: John Doe).  
+    - Alamat pelanggan (contoh: Jl. Merdeka No. 45, Jakarta).  
+    - Kontak pelanggan (contoh: +62 812-3456-7890).  
+    - Kategori pelanggan (contoh: VIP).  
+
+- **Lihat Riwayat Transaksi**:  
+  - Informasi yang ditampilkan mencakup:  
+    - Tanggal transaksi.  
+    - Jumlah transaksi (contoh: Rp 1.500.000).  
+    - Deskripsi transaksi (contoh: Pembelian Produk A).  
 
 ---
 
-## **Analisis Teknologi**
-- **Backend**: Aplikasi ini dapat dibangun dengan menggunakan Laravel atau framework PHP lain yang mendukung pengelolaan produk, pesanan, dan pembayaran.
-- **Frontend**: Aplikasi dapat menggunakan Vue.js atau React untuk pengalaman pengguna yang lebih interaktif dan responsif.
-- **Database**: MySQL atau MariaDB digunakan untuk menyimpan data produk, pesanan, pembayaran, dan pengguna.
-- **Keamanan**: Penggunaan SSL untuk transaksi pembayaran dan otentikasi berbasis token (misalnya JWT) untuk login pengguna.
-
----
-
-Dengan analisis di atas, aplikasi jual beli sepatu online akan memungkinkan pelanggan untuk membeli sepatu dengan mudah, sementara admin dapat dengan efisien mengelola produk, pesanan, dan pembayaran.

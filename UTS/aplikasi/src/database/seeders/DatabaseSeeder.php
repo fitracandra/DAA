@@ -12,9 +12,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Jalankan ProductSeeder terlebih dahulu
         $this->call([
-            ProductSeeder::class,
+            RoleSeeder::class,
+            PermissionSeeder::class,
+            CustomerSeeder::class,
+            TransactionSeeder::class,
         ]);
 
         // Memastikan pengguna admin ada
@@ -27,12 +29,5 @@ class DatabaseSeeder extends Seeder
             ]);
             $admin->assignRole('super_admin');
         }
-
-        // Jalankan OrderSeeder, OrderItemSeeder, dan PaymentSeeder
-        $this->call([
-            OrderSeeder::class,
-            OrderItemSeeder::class,
-            PaymentSeeder::class,
-        ]);
     }
 }
