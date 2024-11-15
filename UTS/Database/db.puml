@@ -1,0 +1,27 @@
+@startuml
+entity customers {
+    + id : BIGINT <<PK>>
+    --
+    first_name : VARCHAR(255)
+    last_name : VARCHAR(255)
+    email : VARCHAR(255) <<UNIQUE>>
+    phone_number : VARCHAR(20)
+    status : VARCHAR(50)
+    created_at : TIMESTAMP
+    updated_at : TIMESTAMP
+}
+
+entity transactions {
+    + id : BIGINT <<PK>>
+    --
+    customer_id : BIGINT <<FK>>
+    date : DATE
+    amount : DECIMAL(10, 2)
+    description : TEXT
+    created_at : TIMESTAMP
+    updated_at : TIMESTAMP
+}
+
+' Foreign Key Constraints
+customers ||--o{ transactions : "has many"
+@enduml
