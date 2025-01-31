@@ -1,0 +1,22 @@
+@startuml
+
+' Flowchart
+start
+:Identifikasi Tantangan;
+  if (Akses Teknologi, Keterampilan Digital, Interaksi Sosial?) then (Ya)
+    :Penentuan Solusi;
+    fork
+      :Penyediaan Subsidi Perangkat & Internet;
+    fork again
+      :Pelatihan Guru dalam Keterampilan Digital;
+    fork again
+      :Implementasi Blended Learning;
+    end fork
+  endif
+:Pengembangan Platform E-Learning;
+:Implementasi dan Uji Coba;
+:Perbaikan dan Optimalisasi;
+:Peluncuran Skala Besar;
+:Monitoring & Evaluasi Berkelanjutan;
+stop
+@enduml

@@ -1,0 +1,20 @@
+@startuml
+' Use Case Diagram
+actor "Siswa" as S
+actor "Guru" as G
+actor "Administrator" as A
+
+rectangle "E-Learning System" {
+  usecase "Mengakses Materi" as UC1
+  usecase "Mengikuti Kelas Online" as UC2
+  usecase "Mengunggah Tugas" as UC3
+  usecase "Menyediakan Konten" as UC4
+  usecase "Mengelola Pengguna" as UC5
+}
+
+S -- UC1
+S -- UC2
+S -- UC3
+G -- UC4
+A -- UC5
+@enduml

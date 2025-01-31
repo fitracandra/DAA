@@ -1,0 +1,29 @@
+@startuml
+' Class Diagram
+class "User" {
+  +username: String
+  +password: String
+  +login()
+  +logout()
+}
+
+class "Siswa" {
+  +nim: String
+  +mengaksesMateri()
+  +mengikutiKelas()
+  +unggahTugas()
+}
+
+class "Guru" {
+  +nip: String
+  +menyediakanKonten()
+}
+
+class "Administrator" {
+  +mengelolaPengguna()
+}
+
+User <|-- Siswa
+User <|-- Guru
+User <|-- Administrator
+@enduml
